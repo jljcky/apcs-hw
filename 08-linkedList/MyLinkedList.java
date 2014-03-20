@@ -1,10 +1,8 @@
 public class MyLinkedList{
     private Node head;
-    private Node first;
 
     public MyLinkedList(){
 	head = null;
-	first = null;
     }
 
     public String toString(){
