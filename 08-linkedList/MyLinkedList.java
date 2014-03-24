@@ -1,15 +1,18 @@
 public class MyLinkedList{
     private Node head;
+    private Node buffer;
 
     public MyLinkedList(){
-	head = null;
+	buffer = null;
+	head = new Node("");
+	head.setNext(buffer);
     }
 
     public String toString(){
 	//returns the entire list into string
 	String list = "";
 	Node tmp = head;
-	while (tmp != null){
+	while (!tmp.getData().equals("")){
 	    list += tmp + ", ";
 	    tmp = tmp.getNext();
 	}
@@ -26,17 +29,12 @@ public class MyLinkedList{
 	//adds s at location i, exception if you try to add past the end
 	if (i < 0 || i >= length())
 	    return;
-        else if (i == 0){
-	    Node tmp = new Node(s);
-	    tmp.setNext(head);
-	    head = tmp;
-	}else{
-	    Node tmp = head;
-	    for (; i > 1; i--)
+        else{
+	    Node tmp = buffer;
+	    for (; i > 0; i--)
 		tmp = tmp.getNext();
 	    Node added = new Node(s);
 	    added.setNext(tmp.getNext());
-	    tmp.setNext(null);
 	    tmp.setNext(added);
 	}
     }
@@ -57,11 +55,7 @@ public class MyLinkedList{
 	//changes the value at location i to s, Returns the old value, exception if i is off the end
 	if (i < 0 || i >= length())
 	    return "index out of bounds";
-	else if(i == 0){
-	    Node removed = head;
-	    head.setData(s);
-	    return ""+removed;
-	}else{
+	else{
 	    Node tmp = head;
 	    for(; i > 0; i--)
 		tmp = tmp.getNext();
@@ -110,7 +104,7 @@ public class MyLinkedList{
 	//returns the number of elements in the list
 	int l = 0;
 	Node tmp = head;
-	while (tmp != null){
+	while (!tmp.getData().equals("")){
 	    l++;
 	    tmp = tmp.getNext();
 	}
