@@ -2,21 +2,10 @@ public class MyLinkedList{
     private Node head;
     private Node tail;
 
-    /*
-      change add so that it adds at the end of the list (in either implementation)
-      modify one of your LL implementations to add a tail pointer
-     */
-
     public MyLinkedList(){
 	head = new Node("");
 	tail = head;
 	
-    private Node buffer;
-
-    public MyLinkedList(){
-	buffer = null;
-	head = new Node("");
-	head.setNext(buffer);
     }
 
     public String toString(){
@@ -24,8 +13,6 @@ public class MyLinkedList{
 	String list = "";
 	Node tmp = head.getNext();
 	while (tmp != null){
-	Node tmp = head;
-	while (!tmp.getData().equals("")){
 	    list += tmp + ", ";
 	    tmp = tmp.getNext();
 	}
@@ -37,17 +24,22 @@ public class MyLinkedList{
 	tail.setNext(tmp);
 	tail=tmp;
     }
-
+    
     public void add(int i, String s){
 	//adds s at location i, exception if you try to add past the end
 	if (i < 0 || i >= length())
 	    return;
-        else{
-	    Node tmp = buffer;
-	    for (; i > 0; i--)
+        else if (i == 0){
+	    Node tmp = new Node(s);
+	    tmp.setNext(head);
+	    head = tmp;
+	}else{
+	    Node tmp = head;
+	    for (; i > 1; i--)
 		tmp = tmp.getNext();
 	    Node added = new Node(s);
 	    added.setNext(tmp.getNext());
+	    tmp.setNext(null);
 	    tmp.setNext(added);
 	}
     }
@@ -68,7 +60,11 @@ public class MyLinkedList{
 	//changes the value at location i to s, Returns the old value, exception if i is off the end
 	if (i < 0 || i >= length())
 	    return "index out of bounds";
-	else{
+	else if(i == 0){
+	    Node removed = head;
+	    head.setData(s);
+	    return ""+removed;
+	}else{
 	    Node tmp = head;
 	    for(; i > 0; i--)
 		tmp = tmp.getNext();
@@ -117,7 +113,7 @@ public class MyLinkedList{
 	//returns the number of elements in the list
 	int l = 0;
 	Node tmp = head;
-	while (!tmp.getData().equals("")){
+	while (tmp != null){
 	    l++;
 	    tmp = tmp.getNext();
 	}
