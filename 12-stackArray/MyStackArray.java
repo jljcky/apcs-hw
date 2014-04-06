@@ -9,6 +9,13 @@ public class MyStackArray{
     }
     
     public void push(String str){
+	if (index == stackList.length){
+	    String[] tmp = new String[stackList.length+10];
+	    for (int i = 0; i < stackList.length; i++){
+		tmp[i] = stackList[i];
+	    }
+	    stackList = tmp;
+	}
 	stackList[index] = str;
 	index++;
     }
