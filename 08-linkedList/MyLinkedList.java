@@ -1,5 +1,16 @@
 public class MyLinkedList{
     private Node head;
+    private Node tail;
+
+    /*
+      change add so that it adds at the end of the list (in either implementation)
+      modify one of your LL implementations to add a tail pointer
+     */
+
+    public MyLinkedList(){
+	head = new Node("");
+	tail = head;
+	
     private Node buffer;
 
     public MyLinkedList(){
@@ -11,6 +22,8 @@ public class MyLinkedList{
     public String toString(){
 	//returns the entire list into string
 	String list = "";
+	Node tmp = head.getNext();
+	while (tmp != null){
 	Node tmp = head;
 	while (!tmp.getData().equals("")){
 	    list += tmp + ", ";
@@ -21,8 +34,8 @@ public class MyLinkedList{
 
     public void add(String d){
 	Node tmp = new Node(d);
-	tmp.setNext(head);  //you must do this first
-	head=tmp; //you must do this second
+	tail.setNext(tmp);
+	tail=tmp;
     }
 
     public void add(int i, String s){
@@ -108,7 +121,7 @@ public class MyLinkedList{
 	    l++;
 	    tmp = tmp.getNext();
 	}
-	return l;
+	return l-1;
     }
 
 }
