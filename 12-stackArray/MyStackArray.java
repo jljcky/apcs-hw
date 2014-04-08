@@ -22,7 +22,7 @@ public class MyStackArray{
 
     public String pop(){
 	index--;
-	return stackList[index+1];
+	return stackList[index];
     }
 
     public String peek(){
