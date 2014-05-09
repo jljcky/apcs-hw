@@ -19,7 +19,20 @@ public class ArrayDriver{
 	System.out.println(stack.peek());
 	stack.pop();
 	System.out.println(stack);
-	stack.pop();
+	System.out.println(stack.pop());
+	System.out.println(stack);
+	System.out.println(stack.isEmpty());
+	System.out.println(stack.pop());
+	System.out.println(stack.pop());
+	System.out.println(stack.pop());
+	System.out.println(stack.pop());
+	System.out.println(stack.pop());
+	System.out.println(stack.pop());
+	System.out.println(stack.pop());
+	System.out.println(stack.pop());
+	System.out.println(stack.pop());
+	System.out.println(stack.pop());
+	System.out.println(stack);
 	System.out.println(stack.isEmpty());
     }
 

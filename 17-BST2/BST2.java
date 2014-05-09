@@ -38,9 +38,9 @@ public class BST2{
 	    return c;
 	else{
 	    if (x < c.getData())
-		search(c.getLeft(),x);
+		search2(c.getLeft(),x);
 	    else
-		search(c.getRight(),x);
+		search2(c.getRight(),x);
 	}
 	
     }
@@ -65,6 +65,13 @@ public class BST2{
 	    
 	}
     }
+
+    public static void main(String[] args){
+
+	BST2 b = new BST2();
+	b.insert(5);
+	b.insert(3);
+	b.insert(7);
 
 }
     

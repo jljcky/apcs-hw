@@ -8,14 +8,17 @@ public class MyStackArray{
 	index = 0;
     }
     
-    public void push(String str){
-	if (index == stackList.length){
-	    String[] tmp = new String[stackList.length+10];
-	    for (int i = 0; i < stackList.length; i++){
-		tmp[i] = stackList[i];
-	    }
-	    stackList = tmp;
+    public void expand(){
+	String[] tmp = new String[stackList.length+10];
+	for (int i = 0; i < stackList.length; i++){
+	    tmp[i] = stackList[i];
 	}
+	stackList = tmp;
+    }
+
+    public void push(String str){
+	if (index == stackList.length)
+	    expand();
 	stackList[index] = str;
 	index++;
     }
