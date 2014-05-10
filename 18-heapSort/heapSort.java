@@ -1,28 +1,38 @@
-public class heapSort{
-
+public class heapSort
+{
     private int[] myArray;
-
-    public int[] heapSort(int[] array){
-	myArray = new int[array.length + 1];
-	return array;
+    private int arrayInd;
+    
+    public int[] heapSort(int[] array)
+    {
+	myArray = new int[array.length];
+	for (int i = 0; i < array.length; i++)
+	    insert(i);
+	
     }
-
-    public void insert(int n){
-	int index = 1;
-	while (myArray[index] != 0)
-	    index++;
-	myArray[index] = n;
-	for (int i = index; i > 1; i--){
-	    if (myArray[index] > myArray[index-1])
-		swap();
+    
+    private void insert(int index) //places the number in index of array to the index of myArray
+    {
+	myArray[index] = array[index];
+	while (index != 0) {
+	    if (myArray[(index-1)/2] < myArray[index]){
+		swap(myArray[(index-1)/2], myArray[index]);
+		index = (index-1)/2;
+	    }else
+		break;
 	}
     }
 
-    public void removeMax(){
-
+    private int removeMax()
+    {
     }
-
-    public void swap(){
-
+    
+    
+    private void swap(int num1, int num2)
+    {
+	int temp = num1;
+	num1 = num2;
+	num2 = num1;
     }
-}
+    
+    
