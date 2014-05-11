@@ -20,27 +20,26 @@ public class heapSort
 		    break;
 	    }
 	}
-	/////////////////////////////////////////////
 	for (int i = array.length-1; i >= 0; i--){
 	    array[i] = myArray[0];
 	    myArray[0] = myArray[i];
-	    int temp = 1;
-	    while (temp < i){
-		if (myArray[temp] > myArray[temp+1]){
-		    int temp1 = myArray[temp];
-		    myArray[temp] = myArray[0];
-		    myArray[0] = temp1;
+	    myArray[i] = 0;
+	    int temp = 0;
+	    while (2*temp+1 < i){
+		if (myArray[2*temp+1] > myArray[2*temp+2]){
+		    int temp1 = myArray[2*temp+1];
+		    myArray[2*temp+1] = myArray[temp];
+		    myArray[temp] = temp1;
 		    temp = 2*temp+1;
 		}
 		else{
-		    int temp1 = myArray[temp+1];
-		    myArray[temp+1] = myArray[0];
-		    myArray[0] = temp1;
+		    int temp1 = myArray[2*temp+2];
+		    myArray[2*temp+2] = myArray[temp];
+		    myArray[temp] = temp1;
 		    temp = 2*temp+2;
 		}
 	    }
 	}
-	///////////////////////////////////////////
 	return array;
     }
 
