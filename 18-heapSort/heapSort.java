@@ -6,33 +6,52 @@ public class heapSort
     public int[] heapSort(int[] array)
     {
 	myArray = new int[array.length];
-	for (int i = 0; i < array.length; i++)
-	    insert(i);
-	
-    }
-    
-    private void insert(int index) //places the number in index of array to the index of myArray
-    {
-	myArray[index] = array[index];
-	while (index != 0) {
-	    if (myArray[(index-1)/2] < myArray[index]){
-		swap(myArray[(index-1)/2], myArray[index]);
-		index = (index-1)/2;
-	    }else
-		break;
+	for (int i = 0; i < myArray.length; i++){
+	    myArray[i] = array[i];
+	    int temp = i;
+	    while (temp > 0){
+		if (myArray[(temp-1)/2] < myArray[temp]){
+		    int temp1 = myArray[temp];
+		    myArray[temp] = myArray[(temp-1)/2];
+		    myArray[(temp-1)/2] = temp1;
+		    temp = (temp-1)/2;
+		}
+		else
+		    break;
+	    }
 	}
+	/////////////////////////////////////////////
+	for (int i = array.length-1; i >= 0; i--){
+	    array[i] = myArray[0];
+	    myArray[0] = myArray[i];
+	    int temp = 1;
+	    while (temp < i){
+		if (myArray[temp] > myArray[temp+1]){
+		    int temp1 = myArray[temp];
+		    myArray[temp] = myArray[0];
+		    myArray[0] = temp1;
+		    temp = 2*temp+1;
+		}
+		else{
+		    int temp1 = myArray[temp+1];
+		    myArray[temp+1] = myArray[0];
+		    myArray[0] = temp1;
+		    temp = 2*temp+2;
+		}
+	    }
+	}
+	///////////////////////////////////////////
+	return array;
     }
 
-    private int removeMax()
+    public static void main(String[] args)
     {
+	int[] arr = {34,45,76,13,74,23,56};
+	heapSort hs = new heapSort();
+	arr = hs.heapSort(arr);
+	for (int i = 0; i < arr.length; i++)
+	    System.out.print(arr[i] + " ");
     }
     
-    
-    private void swap(int num1, int num2)
-    {
-	int temp = num1;
-	num1 = num2;
-	num2 = num1;
-    }
-    
-    
+	
+}
