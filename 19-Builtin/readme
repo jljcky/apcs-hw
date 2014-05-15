@@ -1,0 +1,19 @@
+What is the difference between the HashMap and HashSet form?
+
+	HashMap implements the Map interface, while HashSet implements the Set interface. HashMap is like a dictionary in Python, for it maps keys to values. HashSet is used to store data, like a set.
+
+Internally, how is a HashMap implemented?
+
+	Each key in a HashMap has a linked-list.
+
+Internally, how is a TreeMap implemented?
+
+	
+
+Write code to try to do a speed comparison between HashMaps and TreeMaps. Summarize what you find.
+
+	HashMap is faster than TreeMap. HashMap does not care about order and iterates through its keys. Since TreeMap does care about order, it executes more time to order its keys.
+
+Java has a builtin Heap data structure, but it's not named Heap. What is it.
+
+	

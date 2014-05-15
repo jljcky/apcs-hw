@@ -1,7 +1,6 @@
 public class heapSort
 {
     private int[] myArray;
-    private int arrayInd;
     
     public int[] heapSort(int[] array)
     {
@@ -20,27 +19,36 @@ public class heapSort
 		    break;
 	    }
 	}
+	
 	for (int i = array.length-1; i >= 0; i--){
 	    array[i] = myArray[0];
 	    myArray[0] = myArray[i];
 	    myArray[i] = 0;
 	    int temp = 0;
 	    while (2*temp+1 < i){
-		if (myArray[2*temp+1] > myArray[2*temp+2]){
+		if (myArray[temp] > myArray[2*temp+2] &&
+		    myArray[temp] > myArray[2*temp+1])
+		    break;
+		else if (myArray[2*temp+1] > myArray[2*temp+2]){
 		    int temp1 = myArray[2*temp+1];
 		    myArray[2*temp+1] = myArray[temp];
 		    myArray[temp] = temp1;
 		    temp = 2*temp+1;
 		}
-		else{
+		else if (myArray[2*temp+2] > myArray[2*temp+1]){
 		    int temp1 = myArray[2*temp+2];
 		    myArray[2*temp+2] = myArray[temp];
 		    myArray[temp] = temp1;
 		    temp = 2*temp+2;
 		}
 	    }
-	}
+	}	
 	return array;
+    }
+
+    public int getMedian()
+    {
+	return -1;
     }
 
     public static void main(String[] args)
