@@ -4,16 +4,16 @@ What is the difference between the HashMap and HashSet form?
 
 Internally, how is a HashMap implemented?
 
-	Each key in a HashMap has a linked-list.
+	Each key in the HashMap is a linked list.
 
 Internally, how is a TreeMap implemented?
 
-	
+	TreeMap is like a HashMap, but sorted (?).
 
 Write code to try to do a speed comparison between HashMaps and TreeMaps. Summarize what you find.
 
-	HashMap is faster than TreeMap. HashMap does not care about order and iterates through its keys. Since TreeMap does care about order, it executes more time to order its keys.
+	HashMap is faster than TreeMap. HashMap does not care about order and iterates through its keys. Since TreeMap does care about order, it executes more time to sort its keys.
 
 Java has a builtin Heap data structure, but it's not named Heap. What is it.
 
-	
+	PriorityQueue
