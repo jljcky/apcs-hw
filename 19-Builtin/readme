@@ -8,7 +8,7 @@ Internally, how is a HashMap implemented?
 
 Internally, how is a TreeMap implemented?
 
-	TreeMap is like a HashMap, but sorted (?).
+	TreeMap is similar to HashMap, but it sorts its keys.
 
 Write code to try to do a speed comparison between HashMaps and TreeMaps. Summarize what you find.
 
